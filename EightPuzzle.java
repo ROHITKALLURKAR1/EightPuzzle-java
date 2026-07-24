@@ -36,6 +36,30 @@ public class EightPuzzle extends  JFrame implements ActionListener{
         b8.setFont(new Font("Arial", Font.PLAIN, 60));
         b9.setFont(new Font("Arial", Font.PLAIN, 60));
 
+        b1.setForeground(Color.RED);
+        b2.setForeground(Color.RED);
+        b3.setForeground(Color.RED);
+        b4.setForeground(Color.RED);
+        b5.setForeground(Color.RED);
+        b6.setForeground(Color.RED);
+        b7.setForeground(Color.RED);
+        b8.setForeground(Color.RED);
+        b9.setForeground(Color.RED);
+
+       
+
+            b1.setBackground(new Color(10, 41, 71));
+             b2.setBackground(new Color(10, 41, 71));
+              b3.setBackground(new Color(10, 41, 71));
+               b4.setBackground(new Color(10, 41, 71));
+                b5.setBackground(new Color(10, 41, 71));
+                 b6.setBackground(new Color(10, 41, 71));
+                  b7.setBackground(new Color(10, 41, 71));
+                   b8.setBackground(new Color(10, 41, 71));
+                    b9.setBackground(new Color(10, 41, 71));
+
+       
+
 
         add(b1);
         add(b2);
@@ -213,7 +237,27 @@ public void checkwin(){
         b9.getText().equals("8") &&
         b8.getText().equals(" ")
         ) {
+            b1.setBackground(new Color(254, 127, 45));
+             b2.setBackground(new Color(254, 127, 45));
+              b3.setBackground(new Color(254, 127, 45));
+               b4.setBackground(new Color(254, 127, 45));
+                b5.setBackground(new Color(254, 127, 45));
+                 b6.setBackground(new Color(254, 127, 45));
+                  b7.setBackground(new Color(254, 127, 45));
+                   b8.setBackground(new Color(254, 127, 45));
+                    b9.setBackground(new Color(254, 127, 45));
+
             JOptionPane.showMessageDialog(this, "You Win!");
+            b1.setEnabled(false);
+            b2.setEnabled(false);
+            b3.setEnabled(false);
+            b4.setEnabled(false);
+            b5.setEnabled(false);
+            b6.setEnabled(false);
+            b7.setEnabled(false);
+            b8.setEnabled(false);
+            b9.setEnabled(false);
+             
         }
 }
     
