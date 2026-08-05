@@ -7,7 +7,7 @@ import java.util.Random;
 public class EightPuzzle extends JFrame implements ActionListener {
     JButton b1, b2, b3, b4, b5, b6, b7, b8, b9;
 
-    JButton shuffle;
+    JButton shuffle,solvebot;
     boolean shuffling = false;
 
     EightPuzzle() {
@@ -17,11 +17,15 @@ public class EightPuzzle extends JFrame implements ActionListener {
         setLayout(new BorderLayout());
 
         shuffle = new JButton("Shuffle");
+        solvebot=new JButton("solve");
+        add(solvebot,BorderLayout.NORTH);
 
         add(shuffle, BorderLayout.SOUTH);
 
         shuffle.addActionListener(this);
         shuffle.setFont(new Font("Arial", Font.PLAIN, 30));
+        solvebot.setFont(new Font("Arial", Font.PLAIN, 30));
+        solvebot.addActionListener(this);
 
         JPanel puzzlePanel = new JPanel();
 
@@ -108,6 +112,15 @@ public class EightPuzzle extends JFrame implements ActionListener {
             shufflePuzzle();
             return;
         }
+
+         if (e.getSource() == solvebot) {
+
+        Board board = getBoard();
+
+          System.out.println(board.manhattanDistance());
+
+        return;
+    }
 
         if (e.getSource() == b5) {
 
@@ -285,6 +298,7 @@ public class EightPuzzle extends JFrame implements ActionListener {
         shuffling = false;
     }
 
+   
     public void move(JButton clicked, JButton empty) {
 
         if (empty.getText().equals(" ")) {
@@ -331,6 +345,40 @@ public class EightPuzzle extends JFrame implements ActionListener {
 
         }
     }
+
+    public Board getBoard() {
+
+    int[] tiles = new int[9];
+
+    JButton[] buttons = {b1,b2,b3,b4,b5,b6,b7,b9,b8};
+
+    for(int i=0;i<9;i++){
+
+        if(buttons[i].getText().equals(" "))
+            tiles[i]=0;
+        else
+            tiles[i]=Integer.parseInt(buttons[i].getText());
+
+    }
+
+    return new Board(tiles);
+
+}
+
+public void setBoard(Board board) {
+
+    JButton[] buttons = {b1, b2, b3, b4, b5, b6, b7, b9, b8};
+
+    int[] tiles = board.getTiles();
+
+    for (int i = 0; i < 9; i++) {
+
+        if (tiles[i] == 0)
+            buttons[i].setText(" ");
+        else
+            buttons[i].setText(String.valueOf(tiles[i]));
+    }
+}
 
     public static void main(String[] args) {
         new EightPuzzle();
